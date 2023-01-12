@@ -14,7 +14,8 @@ check_install() {
 
 install_poetry() {
     echo "installing poetry"
-    if [[ -n "$POETRY_VERSION" ]]; then
+    #if poetry version different from "latest", install that version
+    if [ -n "$POETRY_VERSION" ] && [ "$POETRY_VERSION" != "latest" ]; then
         echo "installing poetry version $POETRY_VERSION"
         pip install "poetry==$POETRY_VERSION"
     else

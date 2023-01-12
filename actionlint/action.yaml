@@ -15,12 +15,6 @@ runs:
     - name: Install actionlint
       shell: bash
       run: |
-        if [ ! -d "${{ inputs.download-location}}" ]; then
-          echo "Creating directory: ${{ inputs.download-location}}"
-          mkdir -p "${{ inputs.download-location}}"
-        fi
         bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) "${{ inputs.actionlint-version}}" "${{ inputs.download-location}}"
-        echo "Change permission to 775 for actionlint"
-        chmod 775 "${{ inputs.download-location}}/actionlint"
         
       

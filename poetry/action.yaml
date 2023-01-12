@@ -1,0 +1,20 @@
+name: Install actionlint
+description: GitHub Action that installs actionlint
+inputs:
+  poetry-version:
+    required: false
+    description: Actionlint version to download.
+    default: latest
+  download-location:
+    required: false
+    description: Directory to download actionlint to.
+    default: /usr/local/bin
+runs:
+  using: composite
+  steps:
+    - name: Install actionlint
+      shell: bash
+      env:
+        POETRY_VERSION: ${{ inputs.poetry-version }}
+      run: |
+        ${GITHUB_ACTION_PATH}/install-poetry

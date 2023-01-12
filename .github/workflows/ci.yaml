@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: armand-sauzay/actions-installs/actionlint@initial-repo-setup
+      - uses: actions/checkout@v3
+      - uses: pre-commit/action@v3.0.0
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      #TODO: implement test + coverall instead of dummy test
+      - name: Echo
+        shell: bash
+        run: |
+          echo 1

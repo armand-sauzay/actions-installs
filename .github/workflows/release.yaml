@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        shell: bash
+        run: |
+          echo 1
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        shell: bash
+        run: |
+          echo 1
+
+  release:
+    needs:
+      - lint
+      - test
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        shell: bash
+        run: |
+          echo 1
